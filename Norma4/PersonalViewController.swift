@@ -37,8 +37,8 @@ class PersonalViewController: UITableViewController {
     
     var masterLabels: [UILabel] = []
     
-    var info: [String] = [
-        "164 грн",
+    var info: [Any] = [
+        164,
         "Макси (125 грн./мес.)",
         "+38 (093) 017 29 18",
         "94.154.238.222",
@@ -46,6 +46,16 @@ class PersonalViewController: UITableViewController {
         "94.154.223.242",
         "94.45.64.34"
         ]
+    
+    var planPrice = 125
+    
+    var lowBalance: Bool {
+        if planPrice > info[0] as! Int {
+            return true
+        } else {
+            return false
+        }
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -67,7 +77,11 @@ class PersonalViewController: UITableViewController {
         masterLabels.append(secondaryDNSLabel)
         
         for (index, label) in detailLabels.enumerated(){
-            label.text = NSLocalizedString(info[index], comment: "Detail text")
+            if index != 0 {
+                label.text = NSLocalizedString(info[index] as! String, comment: "Detail text")
+            } else {
+                label.text = "\(info[index]) грн"
+            }
         }
         
         for label in masterLabels {
