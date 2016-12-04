@@ -68,7 +68,8 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
         
         login.delegate = self
         password.delegate = self
-        
+        login.enablesReturnKeyAutomatically = true
+        password.enablesReturnKeyAutomatically = true
         // Do any additional setup after loading the view, typically from a nib.
     }
     
@@ -82,17 +83,26 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
         
         if let nextField = password {
             nextField.becomeFirstResponder()
-            
         } else {
             // Not found, so remove keyboard.
             textField.resignFirstResponder()
         }
         if textField == password {
-            performSegue(withIdentifier: "signIn", sender: self)
+            if enteredDataIsCorrect() {
+                performSegue(withIdentifier: "signIn", sender: self)
+            } else {
+                self.view.endEditing(true)
+                let alertController = UIAlertController(title: "Ошибка Авторизации", message: "Неправильный логин или пароль.", preferredStyle: .alert)
+                
+                let okOption = UIAlertAction(title: "OK", style: .cancel, handler: {(action) in})
+                
+                alertController.addAction(okOption)
+                
+                self.present(alertController, animated: true)
+            }
         }
-        // Do not add a line break
+                // Do not add a line break
         return false
-        
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -113,13 +123,24 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
     private func checkTextFields() {
         if let passwordString = password.text {
             if let loginString = login.text {
-                if passwordString.characters.count <= 8 || loginString.characters.isEmpty{
+                if passwordString.characters.count <= 8 || loginString.isEmpty{
                     enter.isEnabled = false
                 } else {
                     enter.isEnabled = true
                 }
             }
         }
+    }
+    
+    private func enteredDataIsCorrect() -> Bool {
+        if let passwordField = password.text {
+            if let loginField = login.text {
+                if passwordField.characters.count >= 8 && !loginField.isEmpty && !loginField.contains(" ") {
+                    return true
+                }
+            }
+        }
+        return false
     }
 
 
