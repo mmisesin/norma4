@@ -10,14 +10,15 @@ import UIKit
 
 var globalLogin: String?
 
-class LoginViewController: UIViewController {
+class LoginViewController: UIViewController, UITextFieldDelegate {
+    
+    @IBOutlet weak var logoConstraint: NSLayoutConstraint!
     
     @IBOutlet weak var login: UITextField!
 
     @IBAction func loginChanged() {
         checkTextFields()
     }
-
     
     @IBOutlet weak var password: UITextField!
 
@@ -25,18 +26,73 @@ class LoginViewController: UIViewController {
         checkTextFields()
     }
     
-    
     @IBOutlet weak var enter: UIButton!
     
     @IBAction func enterAction() {
         globalLogin = login.text
     }
     
+    @IBAction func callSupport() {
+        let alertController = UIAlertController(title: nil, message: nil, preferredStyle: .actionSheet)
+        
+        let cancelAction = UIAlertAction(title: "Отмена", style: .cancel) { (action) in
+            // ...
+        }
+        alertController.addAction(cancelAction)
+        
+        let firstNumber = UIAlertAction(title: "+38 (096) 287 38 58", style: .default) { (action) in
+            if let url = NSURL(string: "tel://+380962873858") {
+                UIApplication.shared.open(url as URL, options: [:], completionHandler: nil)
+            }
+            
+        }
+        alertController.addAction(firstNumber)
+        
+        let secondNumber = UIAlertAction(title: "+38 (095) 889 98 56", style: .default) { (action) in
+            if let url = NSURL(string: "tel://+380958899856") {
+                UIApplication.shared.open(url as URL, options: [:], completionHandler: nil)
+            }
+        }
+        alertController.addAction(secondNumber)
+        
+        self.present(alertController, animated: true) {
+        }
+    }
     override func viewDidLoad() {
         super.viewDidLoad()
         checkTextFields()
         self.navigationController?.isNavigationBarHidden = true
+        if UIScreen.main.bounds.height == 568 {
+            logoConstraint.constant = 100
+        }
+        
+        login.delegate = self
+        password.delegate = self
+        
         // Do any additional setup after loading the view, typically from a nib.
+    }
+    
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        
+        self.view.endEditing(true)
+        
+    }
+    
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        
+        if let nextField = password {
+            nextField.becomeFirstResponder()
+            
+        } else {
+            // Not found, so remove keyboard.
+            textField.resignFirstResponder()
+        }
+        if textField == password {
+            performSegue(withIdentifier: "signIn", sender: self)
+        }
+        // Do not add a line break
+        return false
+        
     }
     
     override func viewWillAppear(_ animated: Bool) {

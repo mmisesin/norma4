@@ -10,36 +10,37 @@ import UIKit
 import Foundation
 
 class PersonalViewController: UITableViewController {
-
-    @IBOutlet weak var moneyLabel: UILabel!
-    @IBOutlet weak var money: UILabel!
     
-    @IBOutlet weak var planLabel: UILabel!
-    @IBOutlet weak var plan: UILabel!
+    @IBAction func callSupport() {
+        let alertController = UIAlertController(title: nil, message: nil, preferredStyle: .actionSheet)
+        
+        let cancelAction = UIAlertAction(title: "Cancel", style: .cancel) { (action) in
+            // ...
+        }
+        alertController.addAction(cancelAction)
+        
+        let firstNumber = UIAlertAction(title: "+38 (096) 287 38 58", style: .default) { (action) in
+            if let url = NSURL(string: "tel://+380962873858") {
+                UIApplication.shared.open(url as URL, options: [:], completionHandler: nil)
+            }
+            
+        }
+        alertController.addAction(firstNumber)
+        
+        let secondNumber = UIAlertAction(title: "+38 (095) 889 98 56", style: .default) { (action) in
+            if let url = NSURL(string: "tel://+380958899856") {
+                UIApplication.shared.open(url as URL, options: [:], completionHandler: nil)
+            }
+        }
+        alertController.addAction(secondNumber)
+        
+        self.present(alertController, animated: true) {
+        }
+    }
     
-    @IBOutlet weak var phoneLabel: UILabel!
-    @IBOutlet weak var phoneNumber: UILabel!
-    
-    @IBOutlet weak var ipAddressLabel: UILabel!
-    @IBOutlet weak var ipAddress: UILabel!
-    
-    
-    @IBOutlet weak var subnetworkMaskLabel: UILabel!
-    @IBOutlet weak var subnetworkMask: UILabel!
-    
-    @IBOutlet weak var primaryDNSLabel: UILabel!
-    @IBOutlet weak var primaryDNS: UILabel!
-    
-    @IBOutlet weak var secondaryDNSLabel: UILabel!
-    @IBOutlet weak var secondaryDNS: UILabel!
-    
-    var detailLabels: [UILabel] = []
-    
-    var masterLabels: [UILabel] = []
-    
-    var info: [Any] = [
-        164,
-        "Макси (125 грн./мес.)",
+    var info: [String] = [
+        "164",
+        "Maxi (125 UAH/mo.)",
         "+38 (093) 017 29 18",
         "94.154.238.222",
         "255.255.255.0",
@@ -47,10 +48,19 @@ class PersonalViewController: UITableViewController {
         "94.45.64.34"
         ]
     
+    var labels: [String] = [
+        "Balance",
+        "Plan",
+        "Phone number",
+        "IP-address",
+        "DNS Primary",
+        "DNS Secondary"
+    ]
+    
     var planPrice = 125
     
     var lowBalance: Bool {
-        if planPrice > info[0] as! Int {
+        if planPrice > Int(info[0])! {
             return true
         } else {
             return false
@@ -60,33 +70,18 @@ class PersonalViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        detailLabels.append(money)
-        detailLabels.append(plan)
-        detailLabels.append(phoneNumber)
-        detailLabels.append(ipAddress)
-        detailLabels.append(subnetworkMask)
-        detailLabels.append(primaryDNS)
-        detailLabels.append(secondaryDNS)
-        
-        masterLabels.append(moneyLabel)
-        masterLabels.append(planLabel)
-        masterLabels.append(phoneLabel)
-        masterLabels.append(ipAddressLabel)
-        masterLabels.append(subnetworkMaskLabel)
-        masterLabels.append(primaryDNSLabel)
-        masterLabels.append(secondaryDNSLabel)
-        
-        for (index, label) in detailLabels.enumerated(){
+        for (index, string) in info.enumerated(){
             if index != 0 {
-                label.text = NSLocalizedString(info[index] as! String, comment: "Detail text")
+                info[index] = NSLocalizedString(string, comment: "Detail text")
             } else {
-                label.text = "\(info[index]) грн"
+                info[index] = "\(info[index]) грн"
             }
         }
         
-        for label in masterLabels {
-            label.text = NSLocalizedString(label.text!, comment: "Label text")
+        for (index, string) in labels.enumerated() {
+            labels[index] = NSLocalizedString(string, comment: "Label text")
         }
+        
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
 
@@ -101,30 +96,37 @@ class PersonalViewController: UITableViewController {
 
     // MARK: - Table view data source
 
-//    override func numberOfSections(in tableView: UITableView) -> Int {
-//        // #warning Incomplete implementation, return the number of sections
-//        return 2
-//    }
+    override func numberOfSections(in tableView: UITableView) -> Int {
+        // #warning Incomplete implementation, return the number of sections
+        return 2
+    }
     
-    
+    override func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+        if section == 0 {
+            return ""
+        } else {
+            return "Network settings"
+        }
+    }
 
-//    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-//        // #warning Incomplete implementation, return the number of rows
-//        if section == 1 {
-//            return 3
-//        } else if section == 2 {
-//            return 4
-//        }
-//        return 0
-//    }
+    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        // #warning Incomplete implementation, return the number of rows
+        if section == 0 {
+            return 3
+        } else if section == 1 {
+            return 4
+        }
+        return 0
+    }
 
-//    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-//        let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath)
-//
-//        // Configure the cell
-//        cell.detailTextLabel!.text = "test2"
-//        return cell
-//    }
+    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath)
+
+        // Configure the cell
+        cell.textLabel?.text = labels[indexPath.row]
+        cell.detailTextLabel!.text = info[indexPath.row]
+        return cell
+    }
 
     /*
     // Override to support conditional editing of the table view.

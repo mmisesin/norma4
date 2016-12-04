@@ -1,0 +1,42 @@
+
+/* Class = "UITextField"; placeholder = "of subscription card"; ObjectID = "3fC-pl-mlJ"; */
+"3fC-pl-mlJ.placeholder" = "з карти абонента";
+
+/* Class = "UITableViewController"; title = "Settings"; ObjectID = "83a-hL-tiX"; */
+"83a-hL-tiX.title" = "Параметри";
+
+/* Class = "UIButton"; normalTitle = "Sign in"; ObjectID = "A56-HX-pNm"; */
+"A56-HX-pNm.normalTitle" = "Увійти";
+
+/* Class = "UILabel"; text = "Login"; ObjectID = "CcC-KW-Z8E"; */
+"CcC-KW-Z8E.text" = "Логін";
+
+/* Class = "UIButton"; normalTitle = "Call tech. support"; ObjectID = "Dr8-3w-xnY"; */
+"Dr8-3w-xnY.normalTitle" = "Зателефонувати до тех. підтримки";
+
+/* Class = "UIButton"; normalTitle = "Sign out"; ObjectID = "OfL-Eh-jcd"; */
+"OfL-Eh-jcd.normalTitle" = "Вийти";
+
+/* Class = "UITextField"; placeholder = "of subscription card"; ObjectID = "SdD-jv-gn2"; */
+"SdD-jv-gn2.placeholder" = "з карти абонента";
+
+/* Class = "UILabel"; text = "Detail"; ObjectID = "Ugo-Qh-HnD"; */
+"Ugo-Qh-HnD.text" = "Detail";
+
+/* Class = "UILabel"; text = "Detail"; ObjectID = "VxJ-wA-Dqj"; */
+"VxJ-wA-Dqj.text" = "Detail";
+
+/* Class = "UILabel"; text = "Password"; ObjectID = "a8z-6y-rXa"; */
+"a8z-6y-rXa.text" = "Пароль";
+
+/* Class = "UILabel"; text = "NORMA 4"; ObjectID = "bSN-ka-CFj"; */
+"bSN-ka-CFj.text" = "НОРМА 4";
+
+/* Class = "UIBarButtonItem"; title = "Settings"; ObjectID = "xSj-EA-baa"; */
+"xSj-EA-baa.title" = "Параметри";
+
+/* Class = "UINavigationItem"; title = "Personal page"; ObjectID = "yOB-Aj-5Gt"; */
+"yOB-Aj-5Gt.title" = "Особистий кабінет";
+
+/* Class = "UIButton"; normalTitle = "Call tech. support"; ObjectID = "zOW-Cf-601"; */
+"zOW-Cf-601.normalTitle" = "Зателефонувати до тех. підтримки";

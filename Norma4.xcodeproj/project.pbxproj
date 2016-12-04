@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		C636E7D61DF44E340065BF10 /* extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = C636E7D51DF44E340065BF10 /* extensions.swift */; };
 		C64E74081DF2FA2900B41B47 /* PersonalViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C64E74071DF2FA2900B41B47 /* PersonalViewController.swift */; };
 		C64E740A1DF30CBE00B41B47 /* SettingsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C64E74091DF30CBE00B41B47 /* SettingsTableViewController.swift */; };
 		C695A9F51DF1DBB500DAE39F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C695A9F41DF1DBB500DAE39F /* AppDelegate.swift */; };
@@ -18,6 +19,12 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		C636E7C61DF43A3A0065BF10 /* Norma4.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Norma4.entitlements; sourceTree = "<group>"; };
+		C636E7D11DF449190065BF10 /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/LaunchScreen.strings; sourceTree = "<group>"; };
+		C636E7D21DF449190065BF10 /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/Main.strings; sourceTree = "<group>"; };
+		C636E7D31DF449200065BF10 /* uk */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = uk; path = uk.lproj/LaunchScreen.strings; sourceTree = "<group>"; };
+		C636E7D41DF449200065BF10 /* uk */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = uk; path = uk.lproj/Main.strings; sourceTree = "<group>"; };
+		C636E7D51DF44E340065BF10 /* extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = extensions.swift; sourceTree = "<group>"; };
 		C64E74071DF2FA2900B41B47 /* PersonalViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PersonalViewController.swift; sourceTree = "<group>"; };
 		C64E74091DF30CBE00B41B47 /* SettingsTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsTableViewController.swift; sourceTree = "<group>"; };
 		C695A9F11DF1DBB500DAE39F /* Norma4.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Norma4.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -60,12 +67,14 @@
 		C695A9F31DF1DBB500DAE39F /* Norma4 */ = {
 			isa = PBXGroup;
 			children = (
+				C636E7C61DF43A3A0065BF10 /* Norma4.entitlements */,
 				C695AA0A1DF1F8A900DAE39F /* Supporting files */,
 				C695A9F61DF1DBB500DAE39F /* LoginViewController.swift */,
 				C695A9F81DF1DBB500DAE39F /* Main.storyboard */,
 				C695AA061DF1DF3F00DAE39F /* CustomView.swift */,
 				C64E74071DF2FA2900B41B47 /* PersonalViewController.swift */,
 				C64E74091DF30CBE00B41B47 /* SettingsTableViewController.swift */,
+				C636E7D51DF44E340065BF10 /* extensions.swift */,
 			);
 			path = Norma4;
 			sourceTree = "<group>";
@@ -115,6 +124,11 @@
 						CreatedOnToolsVersion = 8.2;
 						DevelopmentTeam = 67459ZGRXW;
 						ProvisioningStyle = Automatic;
+						SystemCapabilities = {
+							com.apple.Push = {
+								enabled = 1;
+							};
+						};
 					};
 				};
 			};
@@ -155,6 +169,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				C695AA071DF1DF3F00DAE39F /* CustomView.swift in Sources */,
+				C636E7D61DF44E340065BF10 /* extensions.swift in Sources */,
 				C64E740A1DF30CBE00B41B47 /* SettingsTableViewController.swift in Sources */,
 				C64E74081DF2FA2900B41B47 /* PersonalViewController.swift in Sources */,
 				C695A9F71DF1DBB500DAE39F /* LoginViewController.swift in Sources */,
@@ -169,6 +184,8 @@
 			isa = PBXVariantGroup;
 			children = (
 				C695A9F91DF1DBB500DAE39F /* Base */,
+				C636E7D21DF449190065BF10 /* ru */,
+				C636E7D41DF449200065BF10 /* uk */,
 			);
 			name = Main.storyboard;
 			sourceTree = "<group>";
@@ -177,6 +194,8 @@
 			isa = PBXVariantGroup;
 			children = (
 				C695A9FE1DF1DBB500DAE39F /* Base */,
+				C636E7D11DF449190065BF10 /* ru */,
+				C636E7D31DF449200065BF10 /* uk */,
 			);
 			name = LaunchScreen.storyboard;
 			sourceTree = "<group>";
@@ -188,6 +207,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
 				CLANG_CXX_LIBRARY = "libc++";
@@ -238,6 +258,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
 				CLANG_CXX_LIBRARY = "libc++";
@@ -281,6 +302,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = Norma4/Norma4.entitlements;
 				DEVELOPMENT_TEAM = 67459ZGRXW;
 				INFOPLIST_FILE = Norma4/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 10.1;
@@ -296,6 +318,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = Norma4/Norma4.entitlements;
 				DEVELOPMENT_TEAM = 67459ZGRXW;
 				INFOPLIST_FILE = Norma4/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 10.1;

@@ -10,11 +10,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Norma4/PersonalViewController.swift"
-            timestampString = "502466540.376261"
+            timestampString = "502544452.767989"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "39"
-            endingLineNumber = "39"
+            startingLineNumber = "40"
+            endingLineNumber = "40"
             landmarkName = "PersonalViewController"
             landmarkType = "3">
          </BreakpointContent>
