@@ -38,29 +38,30 @@ class PersonalViewController: UITableViewController {
         }
     }
     
-    var info: [String] = [
-        "164",
-        "Maxi (125 UAH/mo.)",
-        "+38 (093) 017 29 18",
-        "94.154.238.222",
+    var info: [[String]] = [
+        ["164",
+        "Макси (125 грн/мес.)",
+        "+38 (093) 017 29 18"],
+        ["94.154.238.222",
         "255.255.255.0",
         "94.154.223.242",
-        "94.45.64.34"
+        "94.45.64.34"]
         ]
     
-    var labels: [String] = [
-        "Balance",
-        "Plan",
-        "Phone number",
-        "IP-address",
-        "DNS Primary",
-        "DNS Secondary"
+    var labels: [[String]] = [[
+        "Баланс",
+        "Тариф",
+        "Телефон"],
+        ["IP-адрес",
+         "Маска подсети",
+        "DNS Основной",
+        "DNS Второстепенный"]
     ]
     
     var planPrice = 125
     
     var lowBalance: Bool {
-        if planPrice > Int(info[0])! {
+        if planPrice > Int(info[0][0])! {
             return true
         } else {
             return false
@@ -70,16 +71,19 @@ class PersonalViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        for (index, string) in info.enumerated(){
-            if index != 0 {
-                info[index] = NSLocalizedString(string, comment: "Detail text")
-            } else {
-                info[index] = "\(info[index]) грн"
+        for (index, _) in info.enumerated(){
+            for (index1, string) in info[index].enumerated(){
+                if index != 0 {
+                    info[index][index1] = NSLocalizedString(string, comment: "Detail text")
+                } else {
+                    info[index][index1] = "\(info[index][index1]) грн"
+                }
             }
         }
-        
-        for (index, string) in labels.enumerated() {
-            labels[index] = NSLocalizedString(string, comment: "Label text")
+        for (index, _) in labels.enumerated() {
+            for (index1, string) in labels[index].enumerated() {
+                labels[index][index1] = NSLocalizedString(string, comment: "Label text")
+            }
         }
         
         // Uncomment the following line to preserve selection between presentations
@@ -105,7 +109,7 @@ class PersonalViewController: UITableViewController {
         if section == 0 {
             return ""
         } else {
-            return "Network settings"
+            return "Сетевые настройки"
         }
     }
 
@@ -123,9 +127,15 @@ class PersonalViewController: UITableViewController {
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath)
 
         // Configure the cell
-        cell.textLabel?.text = labels[indexPath.row]
-        cell.detailTextLabel!.text = info[indexPath.row]
+        cell.textLabel?.text = labels[indexPath.section][indexPath.row]
+        cell.detailTextLabel!.text = info[indexPath.section][indexPath.row]
         return cell
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        let backItem = UIBarButtonItem()
+        backItem.title = "Назад"
+        navigationItem.backBarButtonItem = backItem
     }
 
     /*
@@ -166,10 +176,5 @@ class PersonalViewController: UITableViewController {
     // MARK: - Navigation
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        let backItem = UIBarButtonItem()
-        backItem.title = "Back"
-        navigationItem.backBarButtonItem = backItem
-    }
 
 }

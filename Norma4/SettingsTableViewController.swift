@@ -10,13 +10,13 @@ import UIKit
 
 class SettingsTableViewController: UITableViewController {
     
-    var currentLanguage = "English"
+    var currentLanguage = "Русский"
     
     private var labels = [
-        "Login",
-        "Notifications",
-        "Language",
-        "Version"
+        "Логин",
+        "Уведомления",
+        "Язык",
+        "Версия"
                   ]
     
     override func viewDidLoad() {
@@ -52,19 +52,19 @@ class SettingsTableViewController: UITableViewController {
         cell.textLabel?.text = labels[indexPath.row]
         if let label = cell.textLabel!.text {
             switch label {
-            case "Notifications":
+            case "Уведомления":
                 let notiSwitch = UISwitch()
                 cell.detailTextLabel?.text = ""
                 cell.accessoryView = notiSwitch
                 cell.textLabel?.text = labels[indexPath.row]
-            case "Language":
+            case "Язык":
                 cell.detailTextLabel?.text = currentLanguage
                 cell.accessoryType = .disclosureIndicator
-            case "Version":
+            case "Версия":
                 if let version = Bundle.main.infoDictionary?["CFBundleShortVersionString"] as? String {
                         cell.detailTextLabel?.text = version
                 }
-            case "Login":
+            case "Логин":
                 cell.detailTextLabel?.text = globalLogin
             default: break;
             }
@@ -76,7 +76,7 @@ class SettingsTableViewController: UITableViewController {
         if indexPath.row == 2 {
             let alertController = UIAlertController(title: nil, message: nil, preferredStyle: .actionSheet)
             
-            let cancelAction = UIAlertAction(title: "Cancel", style: .cancel) { (action) in
+            let cancelAction = UIAlertAction(title: "Отмена", style: .cancel) { (action) in
                 // ...
             }
             alertController.addAction(cancelAction)

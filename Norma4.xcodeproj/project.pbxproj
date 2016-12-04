@@ -22,8 +22,6 @@
 		C636E7C61DF43A3A0065BF10 /* Norma4.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Norma4.entitlements; sourceTree = "<group>"; };
 		C636E7D11DF449190065BF10 /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/LaunchScreen.strings; sourceTree = "<group>"; };
 		C636E7D21DF449190065BF10 /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/Main.strings; sourceTree = "<group>"; };
-		C636E7D31DF449200065BF10 /* uk */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = uk; path = uk.lproj/LaunchScreen.strings; sourceTree = "<group>"; };
-		C636E7D41DF449200065BF10 /* uk */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = uk; path = uk.lproj/Main.strings; sourceTree = "<group>"; };
 		C636E7D51DF44E340065BF10 /* extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = extensions.swift; sourceTree = "<group>"; };
 		C64E74071DF2FA2900B41B47 /* PersonalViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PersonalViewController.swift; sourceTree = "<group>"; };
 		C64E74091DF30CBE00B41B47 /* SettingsTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsTableViewController.swift; sourceTree = "<group>"; };
@@ -185,7 +183,6 @@
 			children = (
 				C695A9F91DF1DBB500DAE39F /* Base */,
 				C636E7D21DF449190065BF10 /* ru */,
-				C636E7D41DF449200065BF10 /* uk */,
 			);
 			name = Main.storyboard;
 			sourceTree = "<group>";
@@ -195,7 +192,6 @@
 			children = (
 				C695A9FE1DF1DBB500DAE39F /* Base */,
 				C636E7D11DF449190065BF10 /* ru */,
-				C636E7D31DF449200065BF10 /* uk */,
 			);
 			name = LaunchScreen.storyboard;
 			sourceTree = "<group>";
